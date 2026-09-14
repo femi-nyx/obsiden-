@@ -1,0 +1,487 @@
+/* =============================================================
+   Bewerbung Fahmi Alo – gemeinsames Stylesheet
+   Alle Maße in pt (1pt = 1/72"), abgemessen am Original-Layout.
+   A4 = 595.28pt x 841.89pt
+   ============================================================= */
+
+@font-face {
+  font-family: "Bewerbung Sans";
+  src: url("../fonts/OpenSans-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Bewerbung Sans";
+  src: url("../fonts/OpenSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Bewerbung Sans";
+  src: url("../fonts/OpenSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Bewerbung Sans";
+  src: url("../fonts/OpenSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  /* Farben aus dem Original-PDF ausgelesen */
+  --ink: #16181a;         /* Fließtext, Überschriften */
+  --ink-soft: #2a2f33;    /* Profiltext, Sidebar-Einträge */
+  --gray: #6c7378;        /* Zweitzeilen, Datum */
+  --gray-mid: #7d8489;    /* Zeitangaben rechts */
+  --gray-head: #4b5257;   /* Sidebar-Rubriken */
+  --gray-dash: #9aa1a6;   /* Spiegelstriche, Fußzeile */
+  --gray-sub: #aeb5ba;    /* Untertitel im Kopfband */
+  --rule-light: #dfe3e6;  /* feine Linie Anschreiben */
+  --rule-side: #c4cace;   /* Linien in der Sidebar */
+  --panel: #f1f2f5;       /* Sidebar-Fläche */
+  --emblem: #e2e6e8;      /* Signet im Kopfband */
+
+  --margin-x: 51pt;       /* linker/rechter Satzspiegel = 18mm */
+  --header-h: 89.25pt;
+  --footer-h: 25.25pt;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Bewerbung Sans", "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+.page {
+  position: relative;
+  width: 595.28pt;
+  height: 841.89pt;
+  overflow: hidden;
+  background: #fff;
+  page-break-after: always;
+}
+.page:last-child {
+  page-break-after: auto;
+}
+
+/* ---------- Kopfband ------------------------------------------------ */
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-h);
+  background: #000;
+  overflow: hidden;
+}
+
+/* dezenter Schlagschatten unter dem Kopfband */
+.header-shadow {
+  position: absolute;
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  height: 4.5pt;
+  background: linear-gradient(to bottom, rgba(22, 28, 34, 0.22), rgba(22, 28, 34, 0));
+}
+
+.header-art {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.header-text {
+  position: absolute;
+  left: var(--margin-x);
+  top: 21pt;
+}
+
+.name {
+  font-weight: 300;
+  font-size: 20.5pt;
+  line-height: 1;
+  letter-spacing: 0.235em;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.role {
+  margin-top: 12.5pt;
+  font-weight: 400;
+  font-size: 8.6pt;
+  line-height: 1;
+  letter-spacing: 0.235em;
+  color: var(--gray-sub);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ---------- Fußband ------------------------------------------------- */
+
+.footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: var(--footer-h);
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--margin-x);
+  font-size: 7.8pt;
+  letter-spacing: 0.235em;
+  color: var(--gray-dash);
+  text-transform: uppercase;
+}
+.footer span:last-child {
+  margin-right: -0.235em; /* optischer Randausgleich durch Sperrung */
+}
+
+/* =============================================================
+   Seite 1 – Anschreiben
+   ============================================================= */
+
+.letter {
+  position: absolute;
+  left: var(--margin-x);
+  right: var(--margin-x);
+  top: 118pt;
+}
+
+.sender-line {
+  font-size: 8.6pt;
+  line-height: 1.3;
+  color: var(--gray);
+  padding-bottom: 12pt;
+  border-bottom: 0.75pt solid var(--rule-light);
+}
+.sender-line .sep {
+  padding: 0 5pt;
+}
+
+.recipient {
+  margin-top: 19pt;
+  font-size: 10.1pt;
+  line-height: 15pt;
+  color: var(--ink);
+}
+.recipient .company {
+  font-weight: 700;
+}
+
+.date {
+  margin-top: 19pt;
+  text-align: right;
+  font-size: 9.2pt;
+  color: var(--gray);
+}
+
+.subject {
+  margin-top: 25pt;
+  font-weight: 600;
+  font-size: 11.4pt;
+  line-height: 16.5pt;
+  color: var(--ink);
+}
+
+.subject-note {
+  margin-top: 7pt;
+  font-size: 9.2pt;
+  line-height: 13pt;
+  color: var(--gray);
+}
+
+.body {
+  margin-top: 24pt;
+  font-size: 9.9pt;
+  line-height: 14.4pt;
+  color: var(--ink);
+}
+.body p {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.body p + p {
+  margin-top: 10.5pt;
+}
+.body p.salutation,
+.body p.closing {
+  text-align: left;
+  hyphens: none;
+}
+
+.signature {
+  margin-top: 12pt;
+  font-size: 11.5pt;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+/* =============================================================
+   Seite 2 – Lebenslauf
+   ============================================================= */
+
+.sidebar {
+  position: absolute;
+  left: 0;
+  top: var(--header-h);
+  bottom: var(--footer-h);
+  width: 190pt;
+  background: var(--panel);
+}
+
+.sidebar-inner {
+  position: absolute;
+  left: var(--margin-x);
+  width: 124pt;
+  top: calc(var(--header-h) + 24pt);
+}
+
+.side-head {
+  font-weight: 600;
+  font-size: 7.8pt;
+  line-height: 1;
+  letter-spacing: 0.235em;
+  color: var(--gray-head);
+  text-transform: uppercase;
+  padding-bottom: 6.5pt;
+  border-bottom: 0.75pt solid var(--rule-side);
+}
+.side-block + .side-block {
+  margin-top: 15pt;
+}
+.side-body {
+  margin-top: 7.5pt;
+}
+
+/* Liste mit Spiegelstrich */
+ul.dash {
+  list-style: none;
+}
+ul.dash > li {
+  position: relative;
+  padding-left: 12.5pt;
+  font-size: 9.1pt;
+  line-height: 12.6pt;
+  color: var(--ink-soft);
+}
+ul.dash > li + li {
+  margin-top: 4pt;
+}
+ul.dash > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5.9pt;
+  width: 7.5pt;
+  height: 0.9pt;
+  background: var(--gray-dash);
+}
+
+/* Label/Wert-Paare (Persönliches, Sprachen) */
+.pair + .pair {
+  margin-top: 6.5pt;
+}
+.pair dt {
+  font-size: 9.1pt;
+  line-height: 12.6pt;
+  color: var(--gray);
+}
+.pair dd {
+  font-size: 9.1pt;
+  line-height: 12.6pt;
+  color: var(--ink);
+}
+
+/* ---------- Hauptspalte --------------------------------------------- */
+
+.main {
+  position: absolute;
+  left: 204pt;
+  right: var(--margin-x);
+  top: 107pt;
+  bottom: 34pt;
+}
+
+/* Kopfzeile der Hauptspalte: Profiltext + Foto-Klebefläche */
+.main-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 14pt;
+  min-height: 60mm; /* Höhe der Foto-Klebefläche */
+}
+
+.profile {
+  flex: 1 1 auto;
+  min-width: 0;
+  border-left: 2.2pt solid #000;
+  padding-left: 13pt;
+  font-size: 9.7pt;
+  line-height: 14pt;
+  color: var(--ink-soft);
+  hyphens: auto;
+  -webkit-hyphens: auto;
+}
+.profile p + p {
+  margin-top: 8pt;
+}
+
+/* ---------- Foto-Klebefläche ---------------------------------------- */
+
+/*
+ * Innenmaß exakt 45 x 60 mm – das Standardformat für ein
+ * Bewerbungsfoto. Das Foto wird mittig eingeklebt, der Rahmen
+ * verschwindet dabei unter dem Bild.
+ */
+.photo {
+  flex: 0 0 auto;
+  position: relative;
+  width: 45mm;
+  height: 60mm;
+  background: #fff;
+  border: 0.75pt solid var(--rule-side);
+}
+
+/* Eckmarken als Klebehilfe */
+.photo i {
+  position: absolute;
+  width: 9pt;
+  height: 9pt;
+  border: 0 solid var(--gray-dash);
+}
+.photo i:nth-child(1) {
+  top: 4pt;
+  left: 4pt;
+  border-top-width: 0.9pt;
+  border-left-width: 0.9pt;
+}
+.photo i:nth-child(2) {
+  top: 4pt;
+  right: 4pt;
+  border-top-width: 0.9pt;
+  border-right-width: 0.9pt;
+}
+.photo i:nth-child(3) {
+  bottom: 4pt;
+  left: 4pt;
+  border-bottom-width: 0.9pt;
+  border-left-width: 0.9pt;
+}
+.photo i:nth-child(4) {
+  bottom: 4pt;
+  right: 4pt;
+  border-bottom-width: 0.9pt;
+  border-right-width: 0.9pt;
+}
+
+.photo-hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: #c3c9cd;
+}
+.photo-hint .l1 {
+  font-weight: 600;
+  font-size: 8pt;
+  letter-spacing: 0.235em;
+  text-transform: uppercase;
+}
+.photo-hint .l2 {
+  margin-top: 5pt;
+  font-size: 7.6pt;
+  letter-spacing: 0.06em;
+}
+.photo-hint .l3 {
+  margin-top: 2.5pt;
+  font-size: 7.6pt;
+  letter-spacing: 0.06em;
+}
+
+/*
+ * Druckvariante ohne Hinweistext: <body class="foto-blank">.
+ * Dann bleibt nur der Rahmen mit den Eckmarken stehen.
+ */
+body.foto-blank .photo-hint {
+  display: none;
+}
+
+/* ---------- Rubriken der Hauptspalte -------------------------------- */
+
+.section {
+  margin-top: 17pt;
+}
+.section-head {
+  font-weight: 600;
+  font-size: 8.2pt;
+  line-height: 1;
+  letter-spacing: 0.235em;
+  color: #000;
+  text-transform: uppercase;
+  padding-bottom: 6.5pt;
+  border-bottom: 0.75pt solid var(--ink);
+}
+
+.entry {
+  margin-top: 10pt;
+}
+.entry-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10pt;
+}
+.entry-title {
+  font-weight: 600;
+  font-size: 10.2pt;
+  line-height: 13pt;
+  color: var(--ink);
+}
+.entry-date {
+  flex: 0 0 auto;
+  font-size: 8.6pt;
+  line-height: 13pt;
+  color: var(--gray-mid);
+  white-space: nowrap;
+}
+.entry-org {
+  margin-top: 1.5pt;
+  font-size: 9.2pt;
+  line-height: 13pt;
+  color: var(--gray);
+}
+.entry ul.dash {
+  margin-top: 5.5pt;
+}
+.entry ul.dash > li {
+  padding-left: 13pt;
+  font-size: 9.7pt;
+  line-height: 13.4pt;
+  color: var(--ink);
+}
+.entry ul.dash > li + li {
+  margin-top: 3.5pt;
+}
+.entry ul.dash > li::before {
+  top: 6.3pt;
+}
