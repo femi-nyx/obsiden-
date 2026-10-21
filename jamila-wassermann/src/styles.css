@@ -1,0 +1,400 @@
+/* =============================================================
+   Bewerbung Jamila Alo – Wassermann Zahntechnik GmbH
+   Hellblau/Weiß, nach der Canva-Vorlage nachgebaut.
+   Farben und Maße aus der Vorlage ausgelesen. A4 = 595.28 x 841.89pt
+   ============================================================= */
+
+@font-face {
+  font-family: "Bewerbung Sans";
+  src: url("../../fonts/Montserrat.ttf") format("truetype-variations");
+  font-weight: 100 900;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Bewerbung Script";
+  src: url("../../fonts/Caveat.ttf") format("truetype-variations");
+  font-weight: 400 700;
+  font-style: normal;
+}
+
+:root {
+  --blue:       #00759d;  /* Überschriften, Name, Akzente */
+  --blue-bright:#05a1d6;  /* kleine Akzente */
+  --blue-mid:   #aad3df;  /* mittlere Fläche */
+  --blue-pale:  #d8f1f8;  /* große helle Fläche */
+  --ink:        #1c2529;  /* Fließtext */
+  --ink-soft:   #55646b;  /* Zweitzeilen, Labels */
+  --rule:       #c3dfe9;  /* feine Linien */
+
+  --margin-x: 56pt;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  font-family: "Bewerbung Sans", "Gotham", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+@page { size: A4; margin: 0; }
+
+.page {
+  position: relative;
+  width: 595.28pt;
+  height: 841.89pt;
+  overflow: hidden;
+  background: #fff;
+  page-break-after: always;
+}
+.page:last-child { page-break-after: auto; }
+
+/* Die schrägen Flächen der Vorlage. Als SVG, damit die Kanten
+   beim Drucken sauber bleiben. */
+.deko {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+/* =============================================================
+   Seite 1 – Deckblatt
+   ============================================================= */
+
+.cover-photo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 246pt;
+  height: 334pt;
+  object-fit: cover;
+  object-position: 50% 42%;
+}
+
+.cover-hello {
+  position: absolute;
+  left: 300pt;
+  top: 128pt;
+  width: 250pt;
+  font-weight: 300;
+  font-size: 30pt;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+.cover-hello .gross {
+  display: block;
+  margin-top: 6pt;
+  font-weight: 400;
+  font-size: 37pt;
+  line-height: 1.08;
+}
+
+.cover-role {
+  position: absolute;
+  left: var(--margin-x);
+  top: 412pt;
+  font-weight: 300;
+  font-size: 17pt;
+  line-height: 1.3;
+  letter-spacing: 0.055em;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+.cover-role strong {
+  display: block;
+  font-weight: 500;
+}
+.cover-role .ziel {
+  display: block;
+  margin-top: 9pt;
+  font-size: 9pt;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
+}
+
+.cover-contact {
+  position: absolute;
+  left: var(--margin-x);
+  bottom: 112pt;
+  width: 400pt;
+  font-size: 9pt;
+  line-height: 1.45;
+  color: var(--ink);
+}
+.cover-contact dl {
+  display: grid;
+  grid-template-columns: 78pt 1fr;
+  row-gap: 7pt;
+}
+.cover-contact dt { color: var(--ink-soft); }
+.cover-contact dd { color: var(--ink); }
+
+.cover-anlagen {
+  position: absolute;
+  left: var(--margin-x);
+  bottom: 64pt;
+  font-size: 8.5pt;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.cover-anlagen b {
+  display: inline-block;
+  width: 78pt;
+  font-weight: 600;
+}
+.cover-anlagen span { color: var(--ink-soft); }
+
+/* =============================================================
+   Seite 2 – Anschreiben
+   ============================================================= */
+
+.sender {
+  position: absolute;
+  right: var(--margin-x);
+  top: 56pt;
+  text-align: right;
+  font-size: 9pt;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.sender .nm {
+  font-weight: 600;
+  color: var(--blue);
+}
+
+.recipient {
+  position: absolute;
+  left: var(--margin-x);
+  top: 176pt;
+  font-size: 10pt;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.recipient .co { font-weight: 600; }
+
+.letter {
+  position: absolute;
+  left: var(--margin-x);
+  right: var(--margin-x);
+  top: 290pt;
+}
+
+.letter-date {
+  text-align: right;
+  font-size: 9pt;
+  color: var(--ink-soft);
+}
+
+.letter-subject {
+  margin-top: 4pt;
+  font-weight: 600;
+  font-size: 11.5pt;
+  line-height: 1.35;
+  letter-spacing: 0.015em;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+
+.letter-body {
+  margin-top: 17pt;
+  font-size: 9.6pt;
+  line-height: 14.8pt;
+  color: var(--ink);
+}
+.letter-body p { text-align: justify; hyphens: auto; -webkit-hyphens: auto; }
+.letter-body p + p { margin-top: 9pt; }
+.letter-body p.anrede,
+.letter-body p.gruss { text-align: left; hyphens: none; }
+.letter-body p.gruss { margin-top: 12pt; }
+
+.signature {
+  margin-top: 2pt;
+  font-family: "Bewerbung Script", cursive;
+  font-weight: 600;
+  font-size: 30pt;
+  line-height: 1.0;
+  color: var(--blue);
+}
+.signature-name {
+  margin-top: 9pt;
+  font-size: 9.5pt;
+  color: var(--ink);
+}
+
+.anlagen {
+  margin-top: 16pt;
+  font-size: 9pt;
+  line-height: 1.5;
+  color: var(--ink);
+}
+.anlagen b { font-weight: 600; }
+.anlagen ul { list-style: none; margin-top: 2pt; }
+.anlagen li { color: var(--ink-soft); }
+.anlagen li::before { content: "– "; }
+
+/* =============================================================
+   Seite 3 – Lebenslauf
+   ============================================================= */
+
+.cv-head {
+  position: absolute;
+  left: var(--margin-x);
+  top: 54pt;
+  right: var(--margin-x);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20pt;
+}
+
+.cv-title {
+  padding-top: 6pt;
+}
+.cv-title .kicker {
+  font-size: 9pt;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+.cv-title .nm {
+  margin-top: 8pt;
+  font-weight: 300;
+  font-size: 30pt;
+  line-height: 1.08;
+  letter-spacing: 0.02em;
+  color: var(--blue);
+  text-transform: uppercase;
+}
+.cv-title .nm strong { font-weight: 500; }
+.cv-title .role {
+  margin-top: 9pt;
+  font-size: 9.5pt;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+/* Bewerbungsfoto, Standardmaß 45 x 60 mm */
+.cv-photo {
+  flex: 0 0 auto;
+  width: 45mm;
+  height: 60mm;
+  object-fit: cover;
+  object-position: 50% 40%;
+  border: 0.75pt solid var(--rule);
+}
+
+.cv-body {
+  position: absolute;
+  left: var(--margin-x);
+  right: var(--margin-x);
+  top: 240pt;
+}
+
+.cv-section + .cv-section { margin-top: 13pt; }
+
+.cv-section h2 {
+  font-weight: 600;
+  font-size: 9pt;
+  letter-spacing: 0.18em;
+  color: var(--blue);
+  text-transform: uppercase;
+  padding-bottom: 4pt;
+  border-bottom: 1pt solid var(--rule);
+}
+
+.cv-rows { margin-top: 7pt; }
+
+.cv-row {
+  display: grid;
+  grid-template-columns: 112pt 1fr;
+  column-gap: 14pt;
+  font-size: 9.2pt;
+  line-height: 13pt;
+  color: var(--ink);
+}
+.cv-row + .cv-row { margin-top: 6pt; }
+.cv-row .when { color: var(--ink-soft); }
+.cv-row .what b { font-weight: 600; }
+.cv-row .what .org { color: var(--ink-soft); }
+.cv-row .what ul {
+  list-style: none;
+  margin-top: 2pt;
+}
+.cv-row .what li {
+  position: relative;
+  padding-left: 11pt;
+  color: var(--ink);
+}
+.cv-row .what li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6.4pt;
+  width: 5.5pt;
+  height: 1pt;
+  background: var(--blue-bright);
+}
+
+/* zweispaltige Aufzählung für Stärken/Interessen */
+.cv-two {
+  margin-top: 9pt;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 22pt;
+  row-gap: 4pt;
+  font-size: 9.2pt;
+  line-height: 13pt;
+  color: var(--ink);
+}
+.cv-two div {
+  position: relative;
+  padding-left: 11pt;
+}
+.cv-two div::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 6.4pt;
+  width: 5.5pt;
+  height: 1pt;
+  background: var(--blue-bright);
+}
+
+.cv-sign {
+  margin-top: 22pt;
+  font-size: 9pt;
+  color: var(--ink-soft);
+}
+.cv-sign .scr {
+  font-family: "Bewerbung Script", cursive;
+  font-weight: 600;
+  font-size: 26pt;
+  line-height: 1.15;
+  color: var(--blue);
+}
+
+/* =============================================================
+   Platzhalter – noch einzutragende Angaben
+   Fallen bewusst auf, damit nichts übersehen wird.
+   Mit <body class="ohne-marker"> wird die Markierung unsichtbar.
+   ============================================================= */
+
+.todo {
+  background: #fff3c4;
+  border-bottom: 1pt solid #e0b000;
+  padding: 0 2pt;
+  color: #6b5200;
+}
+body.ohne-marker .todo {
+  background: none;
+  border-bottom: 0;
+  color: inherit;
+  padding: 0;
+}

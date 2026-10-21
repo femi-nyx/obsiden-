@@ -1,3 +1,14 @@
+# Bewerbungen der Familie Alo
+
+Zwei Bewerbungen, beide aus HTML/CSS nach PDF gerendert.
+
+| Ordner | Bewerbung |
+| --- | --- |
+| dieser Ordner | **Fahmi Alo** – Kfz-Mechatroniker, Autohaus Munderloh Oldenburg |
+| [`jamila-wassermann/`](jamila-wassermann/) | **Jamila Alo** – Zahntechnikerin, Wassermann Zahntechnik Oldenburg |
+
+---
+
 # Bewerbung Fahmi Alo – Autohaus Munderloh, Oldenburg
 
 Bewerbung um einen Ausbildungsplatz als Kraftfahrzeugmechatroniker,
